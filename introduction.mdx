@@ -1,0 +1,84 @@
+---
+title: "Welcome to AdRecon"
+description: "Track, analyze, and save winning ad creatives from the world's top affiliate networks"
+---
+
+## What is AdRecon?
+
+AdRecon is a SaaS ad intelligence platform that gives you direct access to a curated database of **100,000+ active ad creatives** across the largest affiliate networks in the world:
+
+- **ClickBank**
+- **Digistore24**
+- **BuyGoods**
+- **MaxWeb**
+
+Whether you're a media buyer, affiliate marketer, or creative strategist — AdRecon helps you find proven winners faster.
+
+<CardGroup cols={2}>
+  <Card title="Get Started in Minutes" icon="rocket" href="/quickstart">
+    Sign in and save your first winning ad in under 5 minutes
+  </Card>
+  <Card title="Core Features" icon="bolt" href="/features/ad-feed">
+    Explore the live ad feed, filters, and more
+  </Card>
+</CardGroup>
+
+## Key Capabilities
+
+<AccordionGroup>
+  <Accordion title="Live Ad Feed" icon="database">
+    Browse a continuously updated feed of ad creatives with images, landing page URLs, network classification, and taxonomy tagging. View in table or grid mode with real-time filtering.
+  </Accordion>
+
+  <Accordion title="Save & Organize Ads" icon="bookmark">
+    One-click saving with project-based organization. Build swipe files, organize by campaign or niche, and access your collection from any device. Row-level security keeps your data private.
+  </Accordion>
+
+  <Accordion title="Landing Page Ripper" icon="download">
+    Capture self-contained HTML snapshots of ad landing pages using headless Chromium + SingleFile. Download complete ZIP archives with all assets for offline analysis. Rate limited to 10 captures per 15 minutes.
+  </Accordion>
+
+  <Accordion title="Multi-Network Coverage" icon="network-wired">
+    Unified schema across ClickBank, Digistore24, BuyGoods, and MaxWeb. Normalized metadata with media prioritization and automatic niche classification.
+  </Accordion>
+</AccordionGroup>
+
+## Platform Features
+
+<CardGroup cols={3}>
+  <Card title="Real-time Feed" icon="bolt">
+    Live ad data updated continuously across all networks
+  </Card>
+  <Card title="Secure Authentication" icon="shield-halved">
+    Magic link and password-based auth with row-level security
+  </Card>
+  <Card title="Project Workspaces" icon="folder">
+    Organize saved ads into custom project folders
+  </Card>
+  <Card title="Media Proxy" icon="image">
+    All ad media served through a secure proxy layer
+  </Card>
+  <Card title="Admin Dashboard" icon="gauge">
+    User management and platform configuration tools
+  </Card>
+  <Card title="Profile Management" icon="user">
+    Customize display name, avatar, bio, and settings
+  </Card>
+</CardGroup>
+
+## Data Quality
+
+All ad data flows through the `ads_feed_v2` normalized view, ensuring consistent metadata across networks. Active monitoring keeps the database fresh with performance indicators like days running and status tracking.
+
+<CardGroup cols={2}>
+  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+    Get up and running in minutes
+  </Card>
+  <Card title="Ad Feed" icon="database" href="/features/ad-feed">
+    Learn about the core feed interface
+  </Card>
+</CardGroup>
+
+<Note>
+  AdRecon uses a direct Supabase query path with row-level security (RLS) to protect user data. All queries run client-side with automatic timeout fallbacks.
+</Note>

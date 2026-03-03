@@ -1,0 +1,131 @@
+---
+title: "Page Ripper"
+description: "Capture full offline snapshots of ad landing pages in one click"
+icon: "download"
+---
+
+## Overview
+
+The Page Ripper captures complete, self-contained snapshots of ad landing pages so you can study funnels offline, customize them for your own campaigns, and preserve pages before they go down.
+
+## How to Use Page Ripper
+
+<Steps>
+  <Step title="Open Ad Detail Modal">
+    Click any ad in the feed to view full details
+  </Step>
+  <Step title="Check Landing Page URL">
+    The modal shows the resolved landing page URL (non-Meta URLs only)
+  </Step>
+  <Step title="Click 'Rip Landing Page'">
+    Press the button in the Page Ripper section
+  </Step>
+  <Step title="Wait for Capture">
+    Progress indicator shows capture status (can take up to 2 minutes for large pages)
+  </Step>
+  <Step title="Download ZIP">
+    Your browser downloads the ZIP archive automatically on success
+  </Step>
+</Steps>
+
+### What You'll Get
+
+The ZIP archive contains:
+
+```
+landing-page-YYYY-MM-DDTHH-MM-SS.zip
+├── page.html            # Self-contained HTML (inline CSS/JS)
+└── assets/
+    ├── css/             # External stylesheets
+    ├── js/              # JavaScript files
+    ├── images/          # PNG, JPG, SVG, WebP, AVIF, ICO, GIF
+    ├── fonts/           # WOFF, WOFF2, TTF, OTF, EOT
+    └── media/           # MP4, WebM, MP3, OGG, WAV
+```
+
+<Note>
+  The `page.html` file is self-contained and can be opened directly in a browser without extracting assets. The `assets/` folder contains referenced external resources.
+</Note>
+
+## Landing Page Detection
+
+AdRecon automatically resolves landing pages:
+
+1. **Primary source** — `destination_url` field from ad data
+2. **Fallback** — URLs extracted from ad copy and link description
+3. **Unwrapping** — Facebook redirect URLs (`/l.php`) are unwrapped to final destination
+4. **Filtering** — Meta platform URLs (facebook.com, instagram.com) are excluded
+
+<Warning>
+  Page Ripper cannot capture Facebook/Instagram pages — these require login and have bot protection. Only public landing pages (external domains) are supported.
+</Warning>
+
+## Capture Process Details
+
+1. **Validation** — URL checked for SSRF safety (no private IPs, DNS rebinding protection)
+2. **Rate limiting** — 10 captures per user per 15 minutes
+3. **Browser launch** — Headless Chromium starts via Puppeteer
+4. **Navigation** — Page loads with 60-second timeout
+5. **Auto-scroll** — Triggers lazy-loaded images and content
+6. **Capture** — SingleFile library extracts HTML + intercepts network resources
+7. **Packaging** — ZIP archive created with categorized assets
+8. **Cleanup** — Browser closed, response streamed to client
+
+<Info>
+  The server enforces a 110-second hard timeout. If the page takes longer to capture, you'll receive a 504 timeout error.
+</Info>
+
+## Rate Limiting
+
+- **10 captures per user per 15 minutes**
+- **Sliding window** — Resets continuously, not at fixed intervals
+- **429 response** — Includes `Retry-After` header with seconds until next slot
+
+<Note>
+  Rate limit failures show a toast notification with retry time. The button remains disabled until the window resets.
+</Note>
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card icon="chart-line" title="Funnel Research">
+    Download competitor landing pages to analyze copywriting, layout, and CTAs
+  </Card>
+  <Card icon="folder" title="Swipe File">
+    Build an offline library of high-converting pages for creative inspiration
+  </Card>
+  <Card icon="box-archive" title="Page Archival">
+    Preserve landing pages before they're taken down or changed
+  </Card>
+  <Card icon="palette" title="Template Customization">
+    Download page structure and customize HTML/CSS for your own offers
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+### "Page rip failed" (500 error)
+
+- **Cause:** Browser crash, invalid HTML, or capture exception
+- **Solution:** Click **Try Again**. If repeated failures, the page may have anti-bot protection.
+
+### "Page capture timed out" (504 error)
+
+- **Cause:** Page took longer than 60s to load, or total capture exceeded 110s
+- **Solution:** The page is too slow or complex. Try again later or use browser DevTools to save manually.
+
+### "Rate limit exceeded" (429 error)
+
+- **Cause:** You've captured 10 pages in the last 15 minutes
+- **Solution:** Wait for the time shown in the error message, then retry.
+
+## Related Features
+
+<CardGroup cols={2}>
+  <Card icon="table-list" href="/features/ad-feed" title="Ad Feed">
+    Browse ads to find landing pages to rip
+  </Card>
+  <Card icon="bookmark" href="/features/saved-ads" title="Saved Ads">
+    Save ads before ripping their landing pages
+  </Card>
+</CardGroup>

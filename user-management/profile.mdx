@@ -1,0 +1,51 @@
+---
+title: "User Profile"
+description: "View and edit your AdRecon account profile, including display name, avatar, bio, and security settings"
+icon: "user"
+---
+
+## Overview
+
+The Profile page allows you to view your account information, update your public profile settings, and manage authentication actions like password resets.
+
+## Accessing Your Profile
+
+Navigate to `/profile` or `/app/profile` while signed in.
+
+## Account Identity
+
+| Field | Description |
+|-------|-------------|
+| Display Name | Your current public display name |
+| Email | The email address associated with your account |
+| Avatar | Profile image preview (shows initials if no avatar URL is set) |
+| Auth Providers | Connected authentication methods (e.g., "email", "google") |
+| Last Sign In | Timestamp of your most recent sign-in |
+| Joined | Account creation timestamp |
+
+## Public Profile Settings
+
+<Steps>
+  <Step title="Display Name">
+    Your public display name (max 100 characters). Shown in the app UI and any future collaboration features.
+  </Step>
+  <Step title="Profile Image URL">
+    A direct URL to your profile avatar image. The preview updates as you type. If the image fails to load, your initials are shown instead.
+  </Step>
+  <Step title="Bio">
+    A short biography for your account (max 240 characters). The character counter updates as you type.
+  </Step>
+  <Step title="Website">
+    Your website URL (e.g., `https://your-site.com`). Displayed with a globe icon.
+  </Step>
+</Steps>
+
+Click **Save changes** to update your profile. The button is disabled until you make an edit.
+
+<Note>
+  Display name and profile image are stored in your Supabase `user_metadata` and are reflected throughout the app immediately after saving.
+</Note>
+
+## Password Reset
+
+Click **Send password reset email** to trigger a password reset flow. This button is disabled if your account does not have an email address.

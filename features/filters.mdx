@@ -1,0 +1,127 @@
+---
+title: "Filters"
+description: "Narrow down the ad feed by niche, network, status, performance, and search terms"
+icon: "sliders"
+---
+
+## Overview
+
+Filters let you slice the ad feed to find exactly what you're looking for. Combine niche, network, status, performance bucket, and keyword search to refine results.
+
+## Filter Types
+
+<CardGroup cols={2}>
+  <Card icon="tag" title="Niche">
+    Filter by vertical: Health, Wealth, BizOpp, Relationship, Survival, Other
+  </Card>
+  <Card icon="network-wired" title="Network">
+    Filter by affiliate network: ClickBank, Digistore24, BuyGoods, MaxWeb, WarriorPlus, Other
+  </Card>
+  <Card icon="circle-check" title="Status">
+    Active or Inactive ads
+  </Card>
+  <Card icon="chart-line" title="Performance">
+    New, Promising, Profitable, Proven (based on days running + status)
+  </Card>
+</CardGroup>
+
+## Niche Filter
+
+### Available Niches
+
+- **Health** — Supplements, fitness, weight loss, wellness
+- **Wealth** — Finance, investing, crypto, wealth-building
+- **BizOpp** — Business opportunities, courses, franchises
+- **Relationship** — Dating, marriage, social skills
+- **Survival** — Preparedness, self-defense, homesteading
+- **Other** — Uncategorized or mixed verticals
+
+<Info>
+  Niche classification is automatic based on ad copy, offer name, and advertiser metadata.
+</Info>
+
+## Network Filter
+
+### Available Networks
+
+- **ClickBank** — Large digital marketplace
+- **Digistore24** — European digital products platform
+- **BuyGoods** — Ecommerce and physical products network
+- **MaxWeb** — Global affiliate network
+- **WarriorPlus** — Digital marketing and IM offers
+- **Other** — Unknown or unclassified networks
+
+## Performance Bucket Filter
+
+<Steps>
+  <Step title="New (0-14 days)">
+    **Active ads** running 14 days or less. Testing phase — profitability unknown.
+  </Step>
+  <Step title="Promising (7-29 days)">
+    **Active ads** running 7-29 days. Early traction — likely gaining momentum.
+  </Step>
+  <Step title="Profitable (30-59 days active, 60+ inactive)">
+    **Active ads** running 30-59 days OR **inactive ads** that ran 60+ days. Validated offers.
+  </Step>
+  <Step title="Proven (60+ days active, 180+ inactive)">
+    **Active ads** running 60+ days OR **inactive ads** that ran 180+ days. Long-term winners.
+  </Step>
+</Steps>
+
+<Warning>
+  Performance buckets use multi-signal classification (status, days running, creative count, video presence). The server applies a lightweight filter; the client refines classification for accuracy.
+</Warning>
+
+## Search Filter
+
+Search performs a full-text query across offer name, advertiser, and ad copy.
+
+<Steps>
+  <Step title="Click Search Bar">
+    Locate the search input at the top of the dashboard
+  </Step>
+  <Step title="Type Keywords">
+    Enter any term (offer name, advertiser, product keyword)
+  </Step>
+  <Step title="Debounced Query">
+    Results update automatically after 300ms pause in typing
+  </Step>
+</Steps>
+
+<Info>
+  Search is case-insensitive and uses SQL `ILIKE` with wildcard matching. Partial words are matched (e.g., "keto" finds "Keto Diet", "Ketogenic", "Keto Coffee").
+</Info>
+
+### Search Tips
+
+- **Be specific** — "weight loss" returns thousands; "Resurge" narrows to one product
+- **Use brand names** — Search by advertiser to find all ads from a company
+- **Combine with filters** — Search "supplement" + Niche=Health + Status=Active
+- **Try variations** — "BizOpp", "business opportunity", "entrepreneur"
+
+## Combining Filters
+
+All filters work together. Example:
+
+1. Select **Niche = Health**
+2. Select **Network = ClickBank**
+3. Select **Status = Active**
+4. Select **Performance = Proven**
+5. Type "supplement" in search
+
+**Result:** Active ClickBank health supplement ads that have run 60+ days and mention "supplement" in copy.
+
+<Note>
+  Filters are applied server-side when possible. Niche and Network filters sometimes use client-side processing to avoid database timeouts.
+</Note>
+
+## Related Features
+
+<CardGroup cols={2}>
+  <Card icon="table-list" href="/features/ad-feed" title="Ad Feed">
+    Learn about the main feed interface
+  </Card>
+  <Card icon="bookmark" href="/features/saved-ads" title="Saved Ads">
+    Filtering works in Saved scope too
+  </Card>
+</CardGroup>

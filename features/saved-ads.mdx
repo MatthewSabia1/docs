@@ -1,0 +1,83 @@
+---
+title: "Saved Ads"
+description: "Bookmark and organize ads for later reference and campaign planning"
+icon: "bookmark"
+---
+
+## Overview
+
+Saved Ads lets you bookmark high-value ads from the feed for later analysis. Every saved ad is stored in your personal collection and can be organized into projects.
+
+## Saving Ads
+
+<Steps>
+  <Step title="Quick Save from Feed">
+    Click the bookmark icon in the ad row (table view) or card corner (grid view). The icon fills to indicate saved status.
+  </Step>
+  <Step title="Save from Ad Modal">
+    Open any ad's detail modal and click **Save Ad** or **Manage Save** to add it to your collection and assign projects.
+  </Step>
+</Steps>
+
+<Info>
+  Saved ads sync instantly across devices. Your collection is stored securely and tied to your account.
+</Info>
+
+## Viewing Saved Ads
+
+1. Click the **Saved** tab at the top of the dashboard
+2. The feed switches to show only your bookmarked ads
+3. All filters and sorting options remain available
+4. The count updates to reflect your saved collection size
+
+## Managing Saved Ads
+
+### Unsaving Ads
+
+<Steps>
+  <Step title="From Feed">
+    Click the filled bookmark icon to toggle off
+  </Step>
+  <Step title="From Ad Modal">
+    Open the ad and click **Manage Save**, then deselect all projects and close
+  </Step>
+  <Step title="From Projects View">
+    Use the trash icon to remove from specific projects or entire collection
+  </Step>
+</Steps>
+
+<Warning>
+  Unsaving an ad removes it from ALL projects. If you only want to remove it from one project, use the project-specific remove action instead.
+</Warning>
+
+## Project Assignment
+
+Every saved ad can belong to one or more projects:
+
+1. Click **Save Ad** or **Manage Save** in the ad modal
+2. A project selection modal appears
+3. Check the boxes for projects to include this ad
+4. Click **Save** to confirm
+
+<Note>
+  An ad must be saved before you can assign it to projects. Unsaving removes all project associations.
+</Note>
+
+## Undo Actions
+
+AdRecon provides a 5-second undo window for save/unsave actions:
+
+- A toast notification appears with an **Undo** button
+- Click to reverse the action before it commits
+- After 5 seconds, the change persists to the database
+
+## Related Features
+
+<CardGroup cols={2}>
+  <Card icon="folder" href="/features/projects" title="Projects">
+    Create folders to organize your saved ads
+  </Card>
+  <Card icon="table-list" href="/features/ad-feed" title="Ad Feed">
+    Learn about the main ad browsing interface
+  </Card>
+</CardGroup>
